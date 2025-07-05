@@ -1,0 +1,23 @@
+:root {
+  --cyber-primary: #00ffe7;
+  --cyber-secondary: #ff6b6b;
+  --cyber-dark: #0a0a0a;
+  --cyber-darker: #1a1a2e;
+  --cyber-accent: #b8b8ff;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Share Tech Mono', monospace;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  min-height: 100vh;
+}

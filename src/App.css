@@ -1,0 +1,238 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono:wght@400&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Share Tech Mono', monospace;
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+  color: #e0e0e0;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.dao-app {
+  display: flex;
+  min-height: 100vh;
+  position: relative;
+}
+
+.cyber-grid {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    linear-gradient(rgba(0, 255, 231, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 255, 231, 0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.scroll-main {
+  flex: 1;
+  padding: 2rem 3rem 2rem 280px;
+  background: rgba(10, 10, 30, 0.85);
+  backdrop-filter: blur(10px);
+  min-height: 100vh;
+  overflow-y: auto;
+  position: relative;
+  z-index: 1;
+}
+
+.scroll-page {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 3rem 0;
+  animation: fadeInUp 0.8s ease-out;
+  position: relative;
+}
+
+.scroll-page::before {
+  content: '';
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  right: -20px;
+  bottom: -20px;
+  background: linear-gradient(45deg, transparent, rgba(0, 255, 231, 0.05), transparent);
+  border-radius: 20px;
+  z-index: -1;
+}
+
+.scroll-page h1 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: #00ffe7;
+  text-shadow: 
+    0 0 10px #00ffe7,
+    0 0 20px #00ffe7,
+    0 0 40px #00ffe7;
+  margin-bottom: 1rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.scroll-page h2 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.8rem;
+  color: #ff6b6b;
+  text-shadow: 0 0 10px #ff6b6b;
+  margin: 2rem 0 1rem 0;
+}
+
+.subtitle {
+  font-size: 1.3rem;
+  color: #b8b8ff;
+  margin-bottom: 2rem;
+  text-align: center;
+  font-style: italic;
+}
+
+.youth-intro p {
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+  color: #eee;
+  text-align: center;
+}
+
+.bitsy-name {
+  color: #fcd34d;
+  text-shadow: 0 0 5px #fbbf24;
+}
+
+.bitsy-link {
+  color: #00ffe7;
+  font-weight: bold;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.bitsy-link:hover {
+  color: #fcd34d;
+  text-shadow: 0 0 8px #fbbf24;
+}
+
+.scroll-list {
+  list-style: none;
+  margin: 1.5rem 0;
+  padding: 0;
+}
+
+.scroll-list li {
+  margin: 1rem 0;
+  padding: 0.8rem 1.2rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-left: 4px solid #00ffe7;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.scroll-list li:hover {
+  background: rgba(0, 255, 231, 0.1);
+  transform: translateX(10px);
+}
+
+.scroll-list li::before {
+  content: "▶";
+  color: #00ffe7;
+  margin-right: 0.5rem;
+  font-size: 0.8rem;
+}
+
+blockquote {
+  margin: 2rem 0;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, rgba(255, 107, 107, 0.1), rgba(0, 255, 231, 0.1));
+  border: 1px solid rgba(0, 255, 231, 0.3);
+  border-radius: 12px;
+  font-style: italic;
+  color: #b8b8ff;
+  text-align: center;
+  font-size: 1.2rem;
+  position: relative;
+}
+
+blockquote::before {
+  content: '"';
+  font-size: 4rem;
+  color: #00ffe7;
+  position: absolute;
+  top: -10px;
+  left: 20px;
+  opacity: 0.3;
+}
+
+.quote {
+  font-style: italic;
+  color: #99f6e4;
+  margin-top: 2rem;
+  font-size: 1rem;
+  text-align: center;
+}
+
+a {
+  color: #00ffe7;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+a:hover {
+  color: #ff6b6b;
+  text-shadow: 0 0 5px #ff6b6b;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+.bitsy-container {
+  display: flex;
+  justify-content: center;
+  margin: 2rem 0;
+  filter: drop-shadow(0 0 20px #00ffe7);
+  animation: pulse 3s infinite;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .scroll-main {
+    padding: 1rem 1rem 1rem 60px;
+  }
+
+  .scroll-page h1 {
+    font-size: 2rem;
+  }
+
+  .scroll-list li {
+    font-size: 1rem;
+  }
+
+  .subtitle {
+    font-size: 1.1rem;
+  }
+
+  blockquote {
+    font-size: 1rem;
+  }
+}
