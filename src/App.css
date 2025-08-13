@@ -1,238 +1,276 @@
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono:wght@400&display=swap');
-
-* {
+/* === Base Layout (CPR vFinal) === */
+html, body {
   margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: 'Share Tech Mono', monospace;
-  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+  font-family: 'Cinzel Decorative', 'Cormorant Garamond', serif;
+  background: linear-gradient(135deg, #0b0b1a, #1a1a2e, #23234b);
   color: #e0e0e0;
   min-height: 100vh;
-  overflow-x: hidden;
+  overflow-x: hidden; /* 💡 prevent sideways scroll */
 }
 
-.dao-app {
-  display: flex;
-  min-height: 100vh;
-  position: relative;
-}
+img, video { max-width: 100%; height: auto; }
 
-.cyber-grid {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: 
-    linear-gradient(rgba(0, 255, 231, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 255, 231, 0.03) 1px, transparent 1px);
-  background-size: 50px 50px;
-  pointer-events: none;
-  z-index: 0;
-}
+/* App shell */
+.dao-app { display: flex; min-height: 100vh; }
 
 .scroll-main {
   flex: 1;
-  padding: 2rem 3rem 2rem 280px;
-  background: rgba(10, 10, 30, 0.85);
-  backdrop-filter: blur(10px);
-  min-height: 100vh;
+  padding: 2rem 3rem 2rem 6rem;
+  background: rgba(30, 30, 60, 0.95);
+  box-shadow: 0 0 60px #000a;
   overflow-y: auto;
   position: relative;
-  z-index: 1;
 }
 
+/* === Scroll Pages === */
 .scroll-page {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 3rem 0;
-  animation: fadeInUp 0.8s ease-out;
-  position: relative;
+  max-width: 720px;
+  margin: 2rem auto;
+  padding: 2rem 1.5rem;
+  animation: fadeIn 1.2s ease;
+  background: rgba(35, 35, 75, 0.4);
+  border-radius: 14px;
+  box-shadow: 0 0 18px rgba(192, 132, 252, 0.25);
 }
 
-.scroll-page::before {
-  content: '';
-  position: absolute;
-  top: -20px;
-  left: -20px;
-  right: -20px;
-  bottom: -20px;
-  background: linear-gradient(45deg, transparent, rgba(0, 255, 231, 0.05), transparent);
-  border-radius: 20px;
-  z-index: -1;
+/* Optional wrapper (used by 404 + anywhere we want parchment spacing) */
+.parchment-wrapper {
+  background: rgba(35, 35, 75, 0.4);
+  border-radius: 14px;
+  box-shadow: 0 0 18px rgba(192, 132, 252, 0.25);
+  padding: 2rem 1.5rem;
 }
 
+/* Titles & subtitles */
 .scroll-page h1 {
-  font-family: 'Orbitron', sans-serif;
-  font-size: 2.5rem;
-  font-weight: 900;
-  color: #00ffe7;
-  text-shadow: 
-    0 0 10px #00ffe7,
-    0 0 20px #00ffe7,
-    0 0 40px #00ffe7;
-  margin-bottom: 1rem;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-}
-
-.scroll-page h2 {
-  font-family: 'Orbitron', sans-serif;
-  font-size: 1.8rem;
-  color: #ff6b6b;
-  text-shadow: 0 0 10px #ff6b6b;
-  margin: 2rem 0 1rem 0;
-}
-
-.subtitle {
-  font-size: 1.3rem;
-  color: #b8b8ff;
-  margin-bottom: 2rem;
-  text-align: center;
-  font-style: italic;
-}
-
-.youth-intro p {
-  font-size: 1rem;
-  margin-bottom: 1.5rem;
-  color: #eee;
+  font-family: 'Cinzel Decorative', serif;
+  font-size: 2.3rem;
+  color: #e0baff;
+  text-shadow: 0 0 8px #c084fc;
+  margin-bottom: 0.5rem;
+  letter-spacing: 1px;
   text-align: center;
 }
 
-.bitsy-name {
-  color: #fcd34d;
-  text-shadow: 0 0 5px #fbbf24;
-}
-
-.bitsy-link {
-  color: #00ffe7;
-  font-weight: bold;
-  text-decoration: none;
-  transition: all 0.3s ease;
-}
-
-.bitsy-link:hover {
-  color: #fcd34d;
-  text-shadow: 0 0 8px #fbbf24;
-}
-
-.scroll-list {
-  list-style: none;
-  margin: 1.5rem 0;
-  padding: 0;
-}
-
-.scroll-list li {
-  margin: 1rem 0;
-  padding: 0.8rem 1.2rem;
-  background: rgba(255, 255, 255, 0.05);
-  border-left: 4px solid #00ffe7;
-  border-radius: 8px;
-  font-size: 1.1rem;
-  position: relative;
-  transition: all 0.3s ease;
-}
-
-.scroll-list li:hover {
-  background: rgba(0, 255, 231, 0.1);
-  transform: translateX(10px);
-}
-
-.scroll-list li::before {
-  content: "▶";
-  color: #00ffe7;
-  margin-right: 0.5rem;
-  font-size: 0.8rem;
-}
-
-blockquote {
-  margin: 2rem 0;
-  padding: 1.5rem;
-  background: linear-gradient(135deg, rgba(255, 107, 107, 0.1), rgba(0, 255, 231, 0.1));
-  border: 1px solid rgba(0, 255, 231, 0.3);
-  border-radius: 12px;
-  font-style: italic;
-  color: #b8b8ff;
-  text-align: center;
+.scroll-page .subtitle {
   font-size: 1.2rem;
-  position: relative;
-}
-
-blockquote::before {
-  content: '"';
-  font-size: 4rem;
-  color: #00ffe7;
-  position: absolute;
-  top: -10px;
-  left: 20px;
-  opacity: 0.3;
-}
-
-.quote {
-  font-style: italic;
-  color: #99f6e4;
-  margin-top: 2rem;
-  font-size: 1rem;
+  color: #b8b8ff;
+  margin-bottom: 1.5rem;
   text-align: center;
 }
 
-a {
-  color: #00ffe7;
+.scroll-section { margin-top: 1.5rem; line-height: 1.6; }
+
+/* === Centered Layout Utility for Library Pages === */
+.center-layout { display: flex; justify-content: center; width: 100%; }
+.scroll-container { max-width: 720px; padding: 2rem; }
+
+/* === Parchment Style Background (legacy class kept) === */
+.parchment-bg {
+  background: rgba(35, 35, 75, 0.5);
+  border-radius: 14px;
+  box-shadow: 0 0 16px rgba(192, 132, 252, 0.2);
+}
+
+/* === Links + Buttons === */
+.scroll-links,
+.scroll-list {
+  margin: 1.5rem 0;
+  padding-left: 0;
+  list-style: none;
+}
+
+.scroll-link,
+.cta,
+button,
+a.button,
+.nav-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;           /* 💡 mobile tap target */
+  padding: 10px 14px;         /* 💡 comfy touch spacing */
+  cursor: pointer;
+}
+
+.scroll-link {
+  width: 100%;
+  margin: 0.5rem 0;
+  background: linear-gradient(90deg, #3a3a5a 0%, #23234b 100%);
+  border-radius: 10px;
+  color: #e0baff;
   text-decoration: none;
+  font-weight: 600;
+  border: 1px solid #7c3aed;
+  box-shadow: 0 0 6px #7c3aed88;
   transition: all 0.3s ease;
 }
 
-a:hover {
-  color: #ff6b6b;
-  text-shadow: 0 0 5px #ff6b6b;
+.scroll-link:hover {
+  background: linear-gradient(90deg, #4b0082, #2b2b5e);
+  color: #fff;
+  transform: scale(1.03);
+  box-shadow: 0 0 12px #c084fc, 0 0 8px #ffffff33;
 }
 
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+/* === List Styling === */
+.scroll-list li {
+  margin: 0.7rem 0;
+  font-size: 1.1rem;
+  padding-left: 1.2rem;
+  position: relative;
 }
 
-@keyframes pulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.7; }
+.scroll-list li:before {
+  content: "•";
+  color: #b8b8ff;
+  position: absolute;
+  left: 0;
 }
 
-.bitsy-container {
+/* === Quote Block === */
+blockquote {
+  margin: 2rem 0 1rem 0;
+  padding: 1rem 1.5rem;
+  background: rgba(60, 40, 100, 0.2);
+  border-left: 4px solid #e0baff;
+  font-style: italic;
+  color: #b8b8ff;
+  text-align: center;
+  border-radius: 8px;
+}
+
+/* === Divider Enhancements === */
+.three-dot-divider {
   display: flex;
   justify-content: center;
-  margin: 2rem 0;
-  filter: drop-shadow(0 0 20px #00ffe7);
-  animation: pulse 3s infinite;
+  margin: 1.5rem 0;
 }
 
-/* Responsive */
+.dot {
+  width: 8px;
+  height: 8px;
+  background: #c084fc;
+  border-radius: 50%;
+  margin: 0 6px;
+  box-shadow: 0 0 8px #c084fc;
+}
+
+.scroll-divider.pulse-divider {
+  animation: flicker 3.2s ease-in-out infinite;
+  font-size: 1.4rem;
+  color: #c084fc;
+  text-align: center;
+  margin: 2rem 0;
+  letter-spacing: 0.5rem;
+}
+
+/* === Animations === */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes flicker {
+  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+    opacity: 1;
+    text-shadow: 0 0 4px #c084fc, 0 0 10px #c084fc, 0 0 20px #7c3aed;
+  }
+  20%, 24%, 55% {
+    opacity: 0.6;
+    text-shadow: none;
+  }
+}
+
+@keyframes pulseGlow {
+  0% { box-shadow: 0 0 6px #7c3aed55; }
+  50% { box-shadow: 0 0 14px #c084fc, 0 0 5px #ffffff33; }
+  100% { box-shadow: 0 0 6px #7c3aed55; }
+}
+
+/* Reusable fade utility for list items, cards, etc. */
+.scroll-fade { opacity: 0; transform: translateY(8px); transition: opacity .28s ease, transform .28s ease; }
+.fade-in { opacity: 1; transform: none; }
+
+/* === Bitsy Float Guard (global safety) === */
+.bitsy-float { position: fixed; right: 16px; bottom: 24px; z-index: 50; }
+@media (max-width: 420px){
+  .bitsy-float { bottom: 88px; }         /* keep clear of footer CTA */
+  footer .cta, .footer-cta { margin-bottom: 16px; }
+}
+
+/* === Mobile Responsiveness === */
 @media (max-width: 768px) {
-  .scroll-main {
-    padding: 1rem 1rem 1rem 60px;
-  }
-
-  .scroll-page h1 {
-    font-size: 2rem;
-  }
-
-  .scroll-list li {
-    font-size: 1rem;
-  }
-
-  .subtitle {
-    font-size: 1.1rem;
-  }
-
+  .scroll-page { padding: 1rem; margin: 1rem; }
+  .parchment-wrapper { padding: 1.25rem; } /* tighter wrapper on tablet */
+  .scroll-page h1 { font-size: 1.8rem; }
+  .scroll-page .subtitle,
+  .scroll-list li,
   blockquote {
     font-size: 1rem;
+    line-height: 1.4;
   }
+  .scroll-link { font-size: 1rem; padding: 0.6rem 1rem; }
 }
+
+@media (max-width: 420px) {
+  .parchment-wrapper { padding: 0.9rem; }  /* tight on small phones */
+}
+
+/* === Alignment Hotfixes (CPR vFinal) ======================= */
+/* Center primary stacks inside .scroll-page */
+.scroll-page .scroll-links,
+.scroll-page .scroll-list,
+.scroll-page blockquote,
+.scroll-page .cta-row,
+.scroll-page .accordion,
+.scroll-page .module-list {
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Fill width evenly for list links/cards */
+.scroll-page .scroll-link { width: 100%; }
+
+/* Keep headings & dot dividers perfectly centered */
+.scroll-page h1,
+.three-dot-divider {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Center any intro/banner bars (youth page) */
+.bitsy-banner,
+.alert-banner,
+.youth-intro,
+.youth-modules {
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+}
+/* =========================================================== */
+
+/* === Page-specific exceptions (CPR) ======================= */
+/* Let Affiliate + AI Allies control their own look */
+.scroll-page.affiliate-bg,
+.scroll-page.ai-allies-bg {
+  background: transparent;      /* cancel parchment for these pages */
+  box-shadow: none;             /* remove outer card glow */
+  max-width: 980px;             /* give them more breathing room */
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+
+/* Cancel global bullet pseudo-element inside these neon pages */
+.scroll-page.affiliate-bg .scroll-list li::before,
+.scroll-page.ai-allies-bg .scroll-list li::before {
+  content: none;
+}
+
+/* Keep list items tidy without the global left offset */
+.scroll-page.affiliate-bg .scroll-list li,
+.scroll-page.ai-allies-bg .scroll-list li {
+  padding-left: 0;
+}
+/* ========================================================== */

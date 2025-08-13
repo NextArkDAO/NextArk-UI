@@ -1,0 +1,230 @@
+/* === NextArk Youth — CPR v3.6 (alignment lock + performance) === */
+
+/* Page shell */
+.youth-bg {
+  background: linear-gradient(180deg, #0e0e1e 0%, #1c0f2f 100%);
+  color: #e0e0ff;
+  font-family: 'Orbitron', 'Segoe UI', sans-serif;
+  min-height: 100vh;
+  padding-bottom: 4rem;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* --- TRUE CENTERING HELPERS (match site CPR width) --- */
+.center-layout { width: 100%; max-width: 980px; margin: 0 auto; }
+
+.youth-split-layout {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;   /* avoid left drift */
+  align-items: flex-start;
+  gap: 2rem;
+  width: 100%;
+  padding-left: 0;
+  margin-left: 0;
+}
+
+.youth-content { max-width: 980px; width: 100%; margin: 0 auto; }
+
+/* Keep lists/cards full width inside the centered column */
+.youth-content .scroll-list { width: 100%; }
+
+/* --- Aliases to ensure centering regardless of JSX names --- */
+.youth-intro,
+.youth-modules,
+.bitsy-banner {
+  max-width: 980px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+
+/* --- Visuals (unchanged vibe) --- */
+.youth-title-glow {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #d9b3ff;
+  text-shadow: 0 0 12px #d264ff, 0 0 24px #a359ff;
+  animation: pulseGlow 2.5s infinite ease-in-out;
+  text-align: center;
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  color: #ffc;
+  text-align: center;
+}
+
+.scroll-list li {
+  margin-bottom: 0.75rem;
+  list-style: none;
+  background: rgba(40, 15, 60, 0.6);
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  border: 1px solid #5e0dac;
+  box-shadow: 0 0 10px #531a8f50;
+  transition: transform 0.2s ease;
+}
+.scroll-list li:hover { transform: translateY(-2px); background-color: #2a0b4f; }
+
+.scroll-list li a {
+  color: #ffef9e;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.bitsy-speech {
+  background-color: rgba(58, 16, 78, 0.9);
+  border-left: 4px solid #ffd900;
+  padding: 1rem;
+  margin: 1.5rem 0;
+  border-radius: 6px;
+  box-shadow: 0 0 12px #6f00ff88;
+  font-size: 1rem;
+  color: #fff0fc;
+}
+
+/* Divider */
+.three-dot-divider {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem 0;
+}
+.dot {
+  width: 10px; height: 10px;
+  background-color: #d264ff; border-radius: 50%;
+  margin: 0 6px; animation: flicker 1.5s infinite alternate;
+}
+.dot:nth-child(2){ animation-delay: .3s; }
+.dot:nth-child(3){ animation-delay: .6s; }
+
+/* Ask Bitsy CTA */
+.ask-bitsy-btn {
+  background: linear-gradient(to right, #9e00ff, #fbbe3c);
+  color: #fff; padding: .8rem 1.5rem; border: none; border-radius: 30px;
+  font-weight: 700; font-size: 1rem;
+  box-shadow: 0 0 15px #d264ff; cursor: pointer; transition: transform .2s ease;
+}
+.ask-bitsy-btn:hover { transform: scale(1.05); }
+
+/* Floating Bitsy (page-level — global guard exists in App.css) */
+.bitsy-float-fixed {
+  position: fixed; bottom: 1.5rem; right: 1.5rem;
+  display: flex; flex-direction: column; align-items: center; z-index: 9999;
+}
+.bitsy-float-img {
+  width: 110px; margin-bottom: .5rem;
+  filter: drop-shadow(0 0 10px #fbbe3c);
+  transition: transform .3s ease;
+}
+.bitsy-float-img:hover { transform: scale(1.1); }
+
+/* Quote */
+blockquote {
+  font-style: italic; color: #bbb; margin-top: 2rem; text-align: center; font-size: 1rem;
+  border-top: 1px dashed #555; padding-top: 1rem;
+}
+
+/* Modal */
+.bitsy-modal {
+  background: #120022; padding: 2rem; border-radius: 12px; border: 1px solid #a359ff;
+  box-shadow: 0 0 20px #bd7aff60; color: #fff;
+}
+.bitsy-modal-overlay { background-color: rgba(10, 0, 20, 0.9); }
+.close-btn {
+  background-color: #a359ff; border: none; color: #fff; padding: .3rem .6rem;
+  font-size: 1rem; float: right; border-radius: 4px; cursor: pointer;
+}
+
+/* Hero embed image */
+.bitsy-hero-embed {
+  display: flex;
+  justify-content: center;
+}
+.bitsy-hero-embed img {
+  max-width: 280px;
+  filter: drop-shadow(0 0 10px #fbbe3c);
+  display: block;
+  margin: 0 auto;
+}
+
+/* Animations */
+@keyframes flicker { 0% {opacity:1;} 100% {opacity:.3;} }
+@keyframes pulseGlow {
+  0%,100% { text-shadow: 0 0 12px #d264ff, 0 0 24px #a359ff; }
+  50%     { text-shadow: 0 0 18px #fff000, 0 0 32px #ffd000; }
+}
+
+/* --- Responsive alignment safety --- */
+@media (max-width: 900px) {
+  .youth-split-layout { gap: 1.25rem; }
+  .bitsy-hero-embed img { max-width: 220px; }
+}
+@media (max-width: 640px) {
+  .youth-split-layout { flex-direction: column; align-items: center; }
+  .youth-content { padding: 0 .5rem; }
+}
+
+/* === Youth Page Nuclear Center Lock (wins vs App.css) === */
+.youth-bg .youth-content,
+.youth-bg .youth-intro,
+.youth-bg .youth-modules {
+  max-width: 980px;
+  width: 100%;
+  margin-inline: auto;
+  padding-inline: 1rem;
+}
+
+/* Center the list container itself */
+.youth-bg .scroll-list {
+  width: 100%;
+  max-width: 980px;
+  margin-inline: auto !important;
+  padding-left: 0 !important;
+}
+
+/* Center each list item + link text */
+.youth-bg .scroll-list li,
+.youth-bg .scroll-list li * {
+  text-align: center !important;
+}
+
+.youth-bg .scroll-list .scroll-link,
+.youth-bg .scroll-list li > a {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 100% !important;
+}
+
+/* Optional: balance the left border glow */
+.youth-bg .scroll-list li {
+  border-left: 1px solid #5e0dac;
+}
+/* --- Final text centering for intro + Bitsy note --- */
+.youth-bg .youth-content > p {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 820px;     /* keeps lines comfy */
+}
+
+.youth-bg .bitsy-speech,
+.youth-bg .bitsy-speech p {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 820px;
+}
+
+/* if the left accent line makes the block feel off-center on narrow screens */
+@media (max-width: 640px) {
+  .youth-bg .bitsy-speech {
+    border-left-width: 3px;      /* slightly lighter */
+    padding-left: 0.85rem;       /* keeps visual balance */
+  }
+}

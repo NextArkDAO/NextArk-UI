@@ -1,74 +1,118 @@
-import React from "react";
+// /src/pages/AffiliateTools.jsx — CPR Neon v3.3 (SEO + a11y + prefetch)
+import React, { useEffect } from "react";
+import "./AffiliateTools.css";
+import { setSEO } from "../utils/seo";
 
-const AffiliateTools = () => (
-  <section className="scroll-page">
-    <h1>🔗 Tools of Sovereignty</h1>
-    <p>Set up your sovereignty toolkit.</p>
+// small helper: add <link rel="prefetch"> once per URL
+const prefetchOnce = (href) => {
+  try {
+    if (!href) return;
+    const id = `pf:${href}`;
+    if (document.getElementById(id)) return;
+    const link = document.createElement("link");
+    link.rel = "prefetch";
+    link.href = href;
+    link.as = "fetch";
+    link.id = id;
+    document.head.appendChild(link);
+  } catch {}
+};
 
-    <div className="tools-section">
-      <h2>🟧 Buy Bitcoin</h2>
-      <a href="https://coinbase.com/join/5SBDC2J?src=ios-link" target="_blank" rel="noopener noreferrer" className="tool-link">
-        <span>🏦</span> Coinbase
-      </a>
-    </div>
+export default function AffiliateTools() {
+  useEffect(() => {
+    setSEO({
+      title: "Affiliate Tools — NextArk",
+      description:
+        "Ready-to-post assets, link guidance, and launch checklists for NextArk affiliates.",
+      canonical: "https://your-domain.com/affiliate-tools",
+      og: { image: "/og/affiliate-tools.jpg" },
+    });
+  }, []);
 
-    <div className="tools-section">
-      <h2>🟪 Exchange Power</h2>
-      <a href="https://kraken.onelink.me/JDNW/8rxsyr94?code=zytdp33r" target="_blank" rel="noopener noreferrer" className="tool-link">
-        <span>🐙</span> Kraken
-      </a>
-    </div>
+  const BRAND_ZIP = "/assets/brand/nextark-brand-kit.zip";
+  const CAPTIONS_TXT = "/assets/captions/caption-starters.txt";
 
-    <div className="tools-section">
-      <h2>🛡 Cold Storage</h2>
-      <a href="https://tangem.com" target="_blank" rel="noopener noreferrer" className="tool-link">
-        <span>💳</span> Tangem Wallets (Code: 3J6DCH)
-      </a>
-    </div>
+  const warmBrand = () => prefetchOnce(BRAND_ZIP);
+  const warmCaptions = () => prefetchOnce(CAPTIONS_TXT);
 
-    <blockquote>
-      Support the mission by using our links – you stack, we grow.
-    </blockquote>
-  </section>
-);
+  return (
+    <main className="scroll-page affiliate-bg" aria-labelledby="affTitle">
+      <div className="aff-wrap">
+        <header className="aff-header">
+          <h1 id="affTitle" className="neon-title">🔗 Affiliate Tools</h1>
+          <p className="subtitle">Assets and guidance for your drops.</p>
+          <div className="three-dot-divider" aria-hidden="true">
+            <span className="dot" /><span className="dot" /><span className="dot" />
+          </div>
+        </header>
 
-// Add tools styles
-const toolsStyles = `
-.tools-section {
-  margin: 2rem 0;
+        <div className="aff-grid" role="list" aria-label="Affiliate resources">
+          <section className="aff-card" role="listitem" aria-labelledby="brandKitH">
+            <h2 id="brandKitH">Brand Kit</h2>
+            <ul className="scroll-list">
+              <li>Logos (SVG + PNG)</li>
+              <li>Colors &amp; type (token sheet)</li>
+              <li>Hero images (WebP)</li>
+            </ul>
+            <a
+              className="scroll-link"
+              href={BRAND_ZIP}
+              download
+              onMouseEnter={warmBrand}
+              onFocus={warmBrand}
+              aria-label="Download the NextArk Brand Kit ZIP"
+            >
+              ⬇ Download Brand Kit
+            </a>
+          </section>
+
+          <section className="aff-card" role="listitem" aria-labelledby="captionsH">
+            <h2 id="captionsH">Caption Starters</h2>
+            <ul className="scroll-list">
+              <li>IG / Threads: 3 short hooks</li>
+              <li>X: 2 spicy lines + link</li>
+              <li>Substack: 1‑paragraph drop intro</li>
+            </ul>
+            <a
+              className="scroll-link"
+              href={CAPTIONS_TXT}
+              download
+              onMouseEnter={warmCaptions}
+              onFocus={warmCaptions}
+              aria-label="Download the caption starters text file"
+            >
+              ⬇ Download Captions
+            </a>
+          </section>
+
+          <section className="aff-card" role="listitem" aria-labelledby="utmH">
+            <h2 id="utmH">Link Structure (UTM)</h2>
+            <ul className="scroll-list">
+              <li>
+                Base:{" "}
+                <code>https://your-domain.com/scroll-library</code>
+              </li>
+              <li>
+                UTM:{" "}
+                <code>?utm_source=ig&amp;utm_medium=post&amp;utm_campaign=launch</code>
+              </li>
+              <li>
+                Example:{" "}
+                <code>/scroll-library?utm_source=ig&amp;utm_medium=post&amp;utm_campaign=launch</code>
+              </li>
+            </ul>
+          </section>
+
+          <section className="aff-card" role="listitem" aria-labelledby="rhythmH">
+            <h2 id="rhythmH">Drop Rhythm</h2>
+            <ul className="scroll-list">
+              <li>Mon: teaser visual</li>
+              <li>Wed: scroll pull‑quote</li>
+              <li>Fri: call to action + link</li>
+            </ul>
+          </section>
+        </div>
+      </div>
+    </main>
+  );
 }
-
-.tool-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.8rem;
-  padding: 1rem 1.5rem;
-  background: linear-gradient(135deg, rgba(0, 255, 231, 0.1), rgba(255, 107, 107, 0.1));
-  border: 2px solid rgba(0, 255, 231, 0.3);
-  border-radius: 10px;
-  color: #00ffe7;
-  text-decoration: none;
-  font-weight: 700;
-  font-size: 1.1rem;
-  transition: all 0.3s ease;
-  margin: 0.5rem 0;
-}
-
-.tool-link:hover {
-  border-color: #00ffe7;
-  box-shadow: 0 0 20px rgba(0, 255, 231, 0.4);
-  transform: translateY(-2px);
-}
-
-.tool-link span {
-  font-size: 1.5rem;
-}
-`;
-
-if (typeof document !== 'undefined') {
-  const styleSheet = document.createElement("style");
-  styleSheet.innerText = toolsStyles;
-  document.head.appendChild(styleSheet);
-}
-
-export default AffiliateTools;

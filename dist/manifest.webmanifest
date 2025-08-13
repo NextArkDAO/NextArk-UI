@@ -1,0 +1,37 @@
+{
+  "id": "/",
+  "name": "NextArk",
+  "short_name": "NextArk",
+  "description": "NextArk: scrolls, vaults, and youth sovereignty with Bitsy as your guide.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "display_override": ["standalone", "browser"],
+  "background_color": "#0b0b1a",
+  "theme_color": "#1a1a2e",
+  "dir": "ltr",
+  "lang": "en",
+  "categories": ["education", "productivity", "utilities"],
+  "icons": [
+    { "src": "/icons/icon-192.png",           "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/icons/icon-192-maskable.png",  "sizes": "192x192", "type": "image/png", "purpose": "maskable" },
+    { "src": "/icons/icon-512.png",           "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/icons/icon-512-maskable.png",  "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ],
+  "shortcuts": [
+    {
+      "name": "Bitsy’s World",
+      "short_name": "Bitsy",
+      "url": "/bitsys-world",
+      "icons": [{ "src": "/icons/icon-192.png", "sizes": "192x192", "type": "image/png" }]
+    },
+    {
+      "name": "NodeBox Vault",
+      "short_name": "NodeBox",
+      "url": "/bitsy/nodebox-vault",
+      "icons": [{ "src": "/icons/icon-192.png", "sizes": "192x192", "type": "image/png" }]
+    }
+  ],
+  "handle_links": "preferred",
+  "prefer_related_applications": false
+}

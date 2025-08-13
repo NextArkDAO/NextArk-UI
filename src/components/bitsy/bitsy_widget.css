@@ -1,0 +1,55 @@
+/* 🌟 Bitsy Button Animation */
+@keyframes floatPulse {
+  0% {
+    transform: scale(1) translateY(0);
+  }
+  50% {
+    transform: scale(1.05) translateY(-6px);
+  }
+  100% {
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* 🟡 Bottom-Right Fixed Container */
+.bitsy-button-wrapper {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  animation: floatPulse 3s ease-in-out infinite;
+}
+
+/* 💫 Bitsy Image Button with Glow */
+.bitsy-button-glow {
+  width: 72px;
+  height: auto;
+  filter: drop-shadow(0 0 8px #facc15);
+  transition: transform 0.3s ease;
+}
+
+/* 🌟 Hover Glow Boost */
+.bitsy-button-wrapper:hover .bitsy-button-glow {
+  transform: scale(1.08);
+}
+
+/* 🪄 Label Below Image */
+.bitsy-button-label {
+  margin-top: 4px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #fef08a;
+  text-shadow: 0 0 4px #000;
+}
+
+/* 🔮 (Optional) Modal Overlay Class — if needed later */
+.bitsy-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 999;
+}

@@ -1,0 +1,66 @@
+/* /src/pages/AIAllies.css — Neon Grid v3 */
+.ai-allies-bg { background: transparent; }
+
+.ai-wrap{
+  max-width: 980px;
+  margin: 1.5rem auto;
+  padding: 1.25rem 1rem 1.5rem;
+  background: radial-gradient(140% 120% at 10% 0%, rgba(58,26,95,.35), rgba(30,14,63,.55));
+  border: 1px solid #d977ff55;
+  border-radius: 20px;
+  box-shadow: 0 0 36px rgba(160,64,255,.22), inset 0 0 20px rgba(100,0,200,.18);
+  backdrop-filter: blur(4px);
+}
+
+.neon-title { color:#e0baff; text-shadow:0 0 10px #c084fc; text-align:center; }
+
+.allies-grid {
+  display:grid;
+  grid-template-columns: repeat(2, minmax(0,1fr));
+  gap:1rem;
+  max-width: 900px;
+  margin: 1rem auto 0;
+}
+
+.ally-card {
+  text-decoration:none;
+  background: radial-gradient(120% 120% at 0% 0%, rgba(58,26,95,.6), rgba(30,14,63,.8));
+  border:1px solid #d977ff88;
+  border-radius:14px;
+  padding:1rem 1.1rem;
+  box-shadow: 0 0 14px #d977ff40, inset 0 0 8px #d977ff20;
+  transition: transform .18s ease, box-shadow .18s ease, outline-color .18s ease;
+  color:#f8eaff;
+  display:flex; flex-direction:column; gap:.35rem;
+  outline: 1px solid transparent;
+}
+
+.ally-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 24px #d977ffaa, inset 0 0 14px #d977ff40;
+  outline-color: #c084fc66;            /* subtle outer glow rim */
+}
+
+.ally-header { display:flex; align-items:center; gap:.55rem; }
+.ally-header h3 { margin:0; font-size:1.2rem; }
+.ally-icon { font-size:1.25rem; filter: drop-shadow(0 0 8px #c084fc88); }
+
+.ally-tag { font-size:.95rem; opacity:.9; color:#9fe3ff; margin:0; }
+.ally-desc { margin:.1rem 0 .4rem; opacity:.95; }
+
+.ally-cta {
+  margin-top:auto;
+  align-self:center;
+  padding:.42rem .9rem;
+  border-radius:10px;
+  border:1px solid #6ad7ff99;
+  box-shadow: 0 0 10px #6ad7ff55;
+}
+
+@media (max-width: 720px){
+  .allies-grid { grid-template-columns: 1fr; }
+}
+
+/* Make sure global bullets don’t intrude here (matches App.css exceptions) */
+.scroll-page.ai-allies-bg .scroll-list li::before { content:none; }
+.scroll-page.ai-allies-bg .scroll-list li { padding-left:0; }

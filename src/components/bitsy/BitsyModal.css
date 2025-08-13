@@ -1,0 +1,178 @@
+/* 🔮 Enhanced Bitsy Modal Styling */
+
+.bitsy-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  backdrop-filter: blur(5px);
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+.bitsy-modal {
+  position: relative;
+  background: rgba(18, 18, 28, 0.95);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  box-shadow: 0 0 15px rgba(173, 216, 230, 0.3);
+  color: white;
+  padding: 2rem;
+  max-width: 380px;
+  width: 90%;
+  text-align: center;
+  font-family: 'Trebuchet MS', sans-serif;
+  animation: scaleIn 0.35s ease-in-out;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.bitsy-close {
+  position: absolute;
+  top: 16px;
+  right: 20px;
+  font-size: 1.5rem;
+  color: #fff;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  z-index: 10001;
+}
+
+.bitsy-close:hover {
+  transform: scale(1.2);
+  color: #f5a5ff;
+}
+
+.modal-intro {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  animation: pulseFade 2s infinite;
+}
+
+.modal-list {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0;
+}
+
+.modal-list li {
+  font-size: 1rem;
+  margin-bottom: 0.6rem;
+  color: #f2f2f2;
+  transition: all 0.2s ease;
+  position: relative;
+  padding-left: 1.2rem;
+}
+
+.modal-list li::before {
+  content: "✨";
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.modal-list li:hover {
+  color: #98e6ff;
+  transform: translateX(4px);
+}
+
+.modal-footer {
+  margin-top: 1.5rem;
+  font-style: italic;
+  font-size: 0.9rem;
+  color: #ccc;
+  transition: all 0.2s ease;
+}
+
+.modal-footer:hover {
+  color: #a0e4ff;
+  text-shadow: 0 0 4px #fff;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0.85);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes pulseFade {
+  0% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.6;
+  }
+}
+
+/* 🗣️ TTS Interaction Enhancements */
+.bitsy-speech {
+  font-size: 1rem;
+  color: #a0e4ff;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 0.8rem 1rem;
+  border-radius: 10px;
+  margin-top: 1.5rem;
+  line-height: 1.6;
+  animation: fadeIn 0.6s ease-out;
+  border-left: 4px solid #00ffe7;
+  text-align: left;
+  max-height: 240px;
+  overflow-y: auto;
+  box-shadow: inset 0 0 6px rgba(255, 255, 255, 0.08);
+}
+
+.bitsy-speech::-webkit-scrollbar {
+  width: 6px;
+}
+
+.bitsy-speech::-webkit-scrollbar-thumb {
+  background-color: #00ffe7;
+  border-radius: 3px;
+}
+
+.bitsy-speech::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* 📱 Mobile Responsiveness */
+@media (max-width: 768px) {
+  .bitsy-modal {
+    width: 95%;
+    padding: 1.2rem;
+    font-size: 0.95rem;
+  }
+
+  .modal-intro {
+    font-size: 1rem;
+  }
+
+  .bitsy-close {
+    top: 12px;
+    right: 16px;
+    font-size: 1.2rem;
+  }
+}

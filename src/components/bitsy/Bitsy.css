@@ -1,0 +1,50 @@
+.bitsy-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem 0;
+}
+
+.bitsy-image {
+  width: 160px;
+  height: auto;
+  transition: transform 0.3s ease, filter 0.3s ease;
+  filter: drop-shadow(0 0 6px #facc15);
+}
+
+.bitsy-image:hover {
+  transform: scale(1.05) rotate(1deg);
+  filter: drop-shadow(0 0 12px #facc15);
+}
+
+/* 🔹 Optional Smaller Bitsy (used in bottom-right modal trigger) */
+.bitsy-small .bitsy-image {
+  width: 80px;
+}
+
+/* 📌 Fixed corner placement for trigger */
+.bitsy-fixed-right {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  cursor: pointer;
+}
+
+/* 💫 Floating Bitsy — animated bounce for bottom-right mascot */
+.bitsy-floating {
+  position: fixed;
+  bottom: 80px; /* adjust as needed to stay above footer */
+  right: 20px;
+  height: 65px;
+  width: auto;
+  z-index: 9999;
+  pointer-events: none;
+  animation: floatBitsy 6s ease-in-out infinite;
+}
+
+@keyframes floatBitsy {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+  100% { transform: translateY(0); }
+}

@@ -1,0 +1,20 @@
+.page-title {
+  font-size: 2rem;
+  color: #00f0ff;
+  margin-bottom: 1rem;
+  text-shadow: 0 0 10px #00f0ff;
+}
+
+.scroll-divider {
+  font-size: 1.5rem;
+  color: #ff00ff;
+  text-align: left;
+  margin: 1rem 0;
+  animation: pulseScroll 2s infinite;
+}
+
+@keyframes pulseScroll {
+  0% { opacity: 0.6; transform: translateX(0); }
+  50% { opacity: 1; transform: translateX(10px); }
+  100% { opacity: 0.6; transform: translateX(0); }
+}

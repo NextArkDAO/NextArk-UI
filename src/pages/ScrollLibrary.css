@@ -1,0 +1,215 @@
+/* === ScrollLibrary — CPR v3.2 (centered + glow intact) === */
+
+.library-bg {
+  background: linear-gradient(135deg, #0b0b1a, #1a1a2e, #23234b);
+  color: #f4f4f4;
+  padding: 2rem 1rem;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Center the whole content column */
+.scroll-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 2rem 1rem;
+  min-height: 100vh;
+  width: 100%;
+  max-width: 980px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.scroll-page h1,
+.scroll-page .subtitle,
+.scroll-page blockquote {
+  text-align: center;
+  animation: glowFade 4s infinite ease-in-out;
+  margin-bottom: 1.5rem;
+}
+
+/* Buttons / CTA blocks share the same centered width */
+.scroll-page button,
+.scroll-page .button-block,
+.scroll-page .affiliate-button {
+  margin: 0.5rem auto;
+  display: block;
+  text-align: center;
+  font-size: 1.15rem;
+  padding: 1rem 2rem;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 720px;
+}
+
+/* Signal Embed */
+.signal-embed {
+  background: rgba(15, 20, 40, 0.4);
+  padding: 2rem;
+  margin-top: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(100, 200, 255, 0.25);
+  text-align: center;
+  width: 100%;
+  max-width: 640px;
+}
+
+/* Social Links */
+.social-links {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 2rem;
+}
+.social-links a {
+  color: #6ad7ff;
+  font-size: 1.5rem;
+  transition: color 0.3s ease;
+}
+.social-links a:hover { color: #9aefff; }
+
+/* Glow Animation */
+@keyframes glowFade {
+  0%, 100% { text-shadow: 0 0 10px #6ad7ff, 0 0 20px #6ad7ff; }
+  50% { text-shadow: 0 0 3px #6ad7ff; }
+}
+
+/* === Scroll List (centered container + centered items) === */
+.scroll-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  list-style: none;
+  padding-left: 0;
+  width: 100%;
+  max-width: 980px;                 /* match page width */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.scroll-list li {
+  font-size: 1.15rem;
+  padding: 1rem 1.25rem;
+  background: rgba(20, 25, 55, 0.4);
+  border-left: 4px solid #6ad7ff;
+  border-radius: 10px;
+  transition: background 0.3s ease, transform 0.2s ease;
+  backdrop-filter: blur(3px);
+  box-shadow: 0 0 8px rgba(100, 200, 255, 0.15);
+
+  /* 🔒 Center the content inside each glowing box */
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.scroll-list li:hover {
+  background: rgba(35, 45, 85, 0.55);
+  transform: scale(1.01);
+  box-shadow: 0 0 12px rgba(100, 200, 255, 0.25);
+}
+
+.scroll-list a {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  width: 100%;
+  transition: color 0.2s ease;
+}
+.scroll-list a:hover { color: #9aefff; }
+
+.link-label {
+  display: block;                   /* sits under the title */
+  font-size: 0.95rem;
+  opacity: 0.75;
+  margin-top: 0.25rem;
+}
+
+/* Divider */
+.scroll-divider {
+  font-size: 1.25rem;
+  color: #6ad7ff;
+  margin: 2rem 0 1rem;
+  animation: pulseDivider 3s infinite;
+}
+@keyframes pulseDivider {
+  0%, 100% { opacity: 0.9; text-shadow: 0 0 6px #6ad7ff; }
+  50% { opacity: 0.5; text-shadow: 0 0 2px #6ad7ff; }
+}
+
+/* Quote */
+blockquote {
+  margin-top: 2rem;
+  font-style: italic;
+  opacity: 0.85;
+  border-left: 4px solid #6ad7ff;
+  padding-left: 1rem;
+  max-width: 680px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* === Hard-center guard (if wrapper class differs) === */
+.library-bg .library-page,
+.library-bg .library-stack {
+  max-width: 980px;
+  width: 100%;
+  margin-inline: auto;
+  padding-inline: 1rem;
+}
+/* === Library Hard-Center Overrides (wins vs App.css) === */
+.library-bg .scroll-list .scroll-link,
+.library-bg .scroll-list li > a {
+  display: flex !important;            /* override inline-flex */
+  flex-direction: column !important;   /* title above label */
+  align-items: center !important;      /* center horizontally */
+  justify-content: center !important;  /* center vertically */
+  text-align: center !important;       /* center text */
+  width: 100%;
+}
+
+/* keep label under title, centered */
+.library-bg .scroll-list .link-label {
+  display: block;
+  margin-top: 0.25rem;
+  font-size: 0.95rem;
+  opacity: 0.8;
+  text-align: center;
+}
+
+/* optional: if the left border makes it *look* off-center, soften it */
+.library-bg .scroll-list li {
+  border-left: 4px solid #6ad7ff;
+  /* Uncomment to balance visually with a right glow:
+  box-shadow: 0 0 8px rgba(100,200,255,0.15), inset -2px 0 8px rgba(106,215,255,0.15);
+  */
+}
+/* === Nuclear Center for Library Items (wins vs App.css) === */
+.library-bg .scroll-list .scroll-link {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+  width: 100%;
+}
+
+.library-bg .scroll-item-title {
+  display: block;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.library-bg .link-label {
+  display: block;
+  margin-top: 0.25rem;
+  font-size: 0.95rem;
+  opacity: 0.8;
+  text-align: center;
+}

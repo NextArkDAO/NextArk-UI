@@ -1,0 +1,11 @@
+.bitsy-speech {
+  background: rgba(0, 240, 255, 0.1);
+  border-left: 4px solid #00f0ff;
+  padding: 1rem;
+  margin-bottom: 2rem;
+  font-size: 1rem;
+  color: #ffffff;
+  font-style: italic;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 240, 255, 0.4);
+}

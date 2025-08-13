@@ -1,0 +1,70 @@
+/* === CPR Universal Scroll Page Styles v1.0 === */
+
+/* 🌌 Base Scroll Page Layout */
+.scroll-page {
+  background: linear-gradient(to bottom, #0b0c2a, #181b3d);
+  color: #f3f3ff;
+  min-height: 100vh;
+  padding: 4rem 2rem 5rem;
+  font-family: "Poppins", sans-serif;
+  animation: fadeIn 1.2s ease-in;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* 📝 Header */
+.scroll-page h1 {
+  font-size: 2.3rem;
+  background: linear-gradient(to right, #ffb6f9, #bfa3ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 10px rgba(255, 189, 255, 0.25);
+  margin-bottom: 1rem;
+}
+
+/* 🧁 Subtitle */
+.scroll-page .subtitle {
+  font-size: 1.15rem;
+  color: #d4ccff;
+  max-width: 740px;
+  margin-bottom: 2.5rem;
+  line-height: 1.6;
+}
+
+/* ✨ Coming Soon Message */
+.coming-soon {
+  font-size: 1rem;
+  color: #ffeaff;
+  opacity: 0.8;
+  padding: 1rem 1.5rem;
+  background-color: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(200, 150, 255, 0.05);
+  max-width: 540px;
+}
+
+/* 🌀 Fade In Animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* 📱 Responsive */
+@media screen and (max-width: 768px) {
+  .scroll-page h1 {
+    font-size: 2rem;
+  }
+
+  .scroll-page .subtitle {
+    font-size: 1.05rem;
+    padding: 0 1rem;
+  }
+
+  .coming-soon {
+    font-size: 0.95rem;
+    padding: 0.9rem 1.2rem;
+  }
+}
