@@ -1,12 +1,19 @@
+// ==========================
+// ✅ Footer.jsx – CPR Version (Case Fix)
+// ==========================
 import React from "react";
-import "./footer.css";
+import "./Footer.css"; // ✅ Fixed casing to match actual file name
 
 const Footer = () => {
   return (
     <footer className="footer-scroll">
       <div className="footer-content">
-        <p className="footer-line">© {new Date().getFullYear()} NextArk DAO. All Rights Reserved.</p>
-        <p className="footer-line">Built for the next generation of sovereigns.</p>
+        <p className="footer-line">
+          © {new Date().getFullYear()} NextArk DAO. All Rights Reserved.
+        </p>
+        <p className="footer-line">
+          Built for the next generation of sovereigns.
+        </p>
         <p className="footer-line">
           Privacy First · Decentralized by Design · Powered by Code + Courage
         </p>
