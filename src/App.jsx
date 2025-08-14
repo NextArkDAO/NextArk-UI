@@ -6,46 +6,47 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import "./App.css";
 
 // --- Eager (keep instant for UX / LCP) ---
-import Home from "./pages/Home";
-import NextArkYouth from "./pages/NextArkYouth";
-import ScrollLibraryGateway from "./pages/ScrollLibraryGateway";
+import Home from "./pages/Home.jsx";
+import NextArkYouth from "./pages/NextArkYouth.jsx";
+// 🔧 CI fix: use the exact filename/case that exists in repo (scrollLibraryGateway.jsx)
+import ScrollLibraryGateway from "./pages/scrollLibraryGateway.jsx";
 
 // --- Lazy (non‑critical splits) ---
-const AffiliateTools      = lazy(() => import("./pages/AffiliateTools"));
-const BitsysWorld         = lazy(() => import("./pages/BitsysWorld"));
-const AIAllies            = lazy(() => import("./pages/AIAllies"));
-const YouthScrollGateway  = lazy(() => import("./pages/YouthScrollGateway"));
+const AffiliateTools      = lazy(() => import("./pages/AffiliateTools.jsx"));
+const BitsysWorld         = lazy(() => import("./pages/BitsysWorld.jsx"));
+const AIAllies            = lazy(() => import("./pages/AIAllies.jsx"));
+const YouthScrollGateway  = lazy(() => import("./pages/YouthScrollGateway.jsx"));
 
-const BitcoinIntro        = lazy(() => import("./pages/scrolls/bitcoin-intro"));
-const WalletSafety        = lazy(() => import("./pages/scrolls/wallet-safety"));
-const QuillshadeReveal    = lazy(() => import("./pages/scrolls/quillshade-reveal"));
-const InheritancePurpose  = lazy(() => import("./pages/scrolls/inheritance-purpose"));
+const BitcoinIntro        = lazy(() => import("./pages/scrolls/bitcoin-intro.jsx"));
+const WalletSafety        = lazy(() => import("./pages/scrolls/wallet-safety.jsx"));
+const QuillshadeReveal    = lazy(() => import("./pages/scrolls/quillshade-reveal.jsx"));
+const InheritancePurpose  = lazy(() => import("./pages/scrolls/inheritance-purpose.jsx"));
 
-const YouthScroll001      = lazy(() => import("./pages/youth-scrolls/YouthScroll001"));
-const YouthScroll002      = lazy(() => import("./pages/youth-scrolls/YouthScroll002"));
-const YouthScroll003      = lazy(() => import("./pages/youth-scrolls/YouthScroll003"));
-const YouthScroll004      = lazy(() => import("./pages/youth-scrolls/YouthScroll004"));
-const YouthScroll005      = lazy(() => import("./pages/youth-scrolls/YouthScroll005"));
-const CurriculumScrolls   = lazy(() => import("./pages/youth-scrolls/CurriculumScrolls"));
-const ParentGuide         = lazy(() => import("./pages/youth-scrolls/ParentGuide"));
-const DownloadablePDFs    = lazy(() => import("./pages/youth-scrolls/DownloadablePDFs"));
+const YouthScroll001      = lazy(() => import("./pages/youth-scrolls/YouthScroll001.jsx"));
+const YouthScroll002      = lazy(() => import("./pages/youth-scrolls/YouthScroll002.jsx"));
+const YouthScroll003      = lazy(() => import("./pages/youth-scrolls/YouthScroll003.jsx"));
+const YouthScroll004      = lazy(() => import("./pages/youth-scrolls/YouthScroll004.jsx"));
+const YouthScroll005      = lazy(() => import("./pages/youth-scrolls/YouthScroll005.jsx"));
+const CurriculumScrolls   = lazy(() => import("./pages/youth-scrolls/CurriculumScrolls.jsx"));
+const ParentGuide         = lazy(() => import("./pages/youth-scrolls/ParentGuide.jsx"));
+const DownloadablePDFs    = lazy(() => import("./pages/youth-scrolls/DownloadablePDFs.jsx"));
 
-const WhoIsBitsy          = lazy(() => import("./pages/bitsy/WhoIsBitsy"));
-const HowScrollsAreMade   = lazy(() => import("./pages/bitsy/HowScrollsAreMade"));
-const AskBitsy            = lazy(() => import("./pages/bitsy/AskBitsy"));
-const NodeboxVault        = lazy(() => import("./pages/bitsy/NodeboxVault"));
+const WhoIsBitsy          = lazy(() => import("./pages/bitsy/WhoIsBitsy.jsx"));
+const HowScrollsAreMade   = lazy(() => import("./pages/bitsy/HowScrollsAreMade.jsx"));
+const AskBitsy            = lazy(() => import("./pages/bitsy/AskBitsy.jsx"));
+const NodeboxVault        = lazy(() => import("./pages/bitsy/NodeboxVault.jsx"));
 
-const ColdWallets         = lazy(() => import("./pages/bitsy/nodebox/ColdWallets"));
-const SeedVaults          = lazy(() => import("./pages/bitsy/nodebox/SeedVaults"));
-const ScrollGuides        = lazy(() => import("./pages/bitsy/nodebox/ScrollGuides"));
-const Worksheets          = lazy(() => import("./pages/bitsy/nodebox/Worksheets"));
-const Fulfillment         = lazy(() => import("./pages/bitsy/nodebox/Fulfillment"));
+const ColdWallets         = lazy(() => import("./pages/bitsy/nodebox/ColdWallets.jsx"));
+const SeedVaults          = lazy(() => import("./pages/bitsy/nodebox/SeedVaults.jsx"));
+const ScrollGuides        = lazy(() => import("./pages/bitsy/nodebox/ScrollGuides.jsx"));
+const Worksheets          = lazy(() => import("./pages/bitsy/nodebox/Worksheets.jsx"));
+const Fulfillment         = lazy(() => import("./pages/bitsy/nodebox/Fulfillment.jsx"));
 
-const NotFound            = lazy(() => import("./pages/NotFound"));
+const NotFound            = lazy(() => import("./pages/NotFound.jsx"));
 
 // Subtle site‑themed fallback (no layout shift)
 const ArkFallback = () => (
-  <div style={{ display:"grid", placeItems:"center", minHeight:"40vh" }}>
+  <div style={{ display: "grid", placeItems: "center", minHeight: "40vh" }}>
     <div className="scroll-divider pulse-divider">✦ loading ✦</div>
   </div>
 );
