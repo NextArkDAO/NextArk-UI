@@ -2,7 +2,7 @@
 // ✅ HowScrollsAreMade.jsx – CPR Version
 // ==========================
 import React from "react";
-import FloatingBitsy from "../../components/bitsy/FloatingBitsy"; // ✅ Corrected path
+import FloatingBitsy from "../../components/Bitsy/FloatingBitsy.jsx"; // ✅ match folder + .jsx
 import Footer from "../../components/Footer";
 import "./ScrollPages.css"; // ✅ Shared CSS for scroll styling
 
