@@ -6,8 +6,9 @@ import { Link } from "react-router-dom";
 import "../App.css";
 import "./Home.css";
 
-import BitsyAgentModal from "../components/Bitsy/BitsyAgentModal";
-import BitsyToggleButton from "../components/Bitsy/BitsyToggleButton";
+import BitsyAgentModal from "../components/Bitsy/BitsyAgentModal.jsx";
+import BitsyToggleButton from "../components/Bitsy/BitsyToggleButton.jsx";
+
 import { setSEO } from "../utils/seo";
 
 // 🎯 Prefetch only the routes that exist
