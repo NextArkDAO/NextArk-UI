@@ -1,13 +1,13 @@
 // ==========================
-// ✅ Home.jsx – CPR v10: SEO + IO fade + mobile LCP + safe prefetch set
+// ✅ Home.jsx – CPR v11: SEO + IO fade + mobile LCP + safe prefetch set
 // ==========================
 import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import "../App.css";
 import "./Home.css";
 
-import BitsyAgentModal from "../components/Bitsy/BitsyAgentModal";
-import BitsyToggleButton from "../components/Bitsy/BitsyToggleButton";
+import BitsyAgentModal from "../components/Bitsy/BitsyAgentModal.jsx";
+import BitsyToggleButton from "../components/Bitsy/BitsyToggleButton.jsx";
 import { setSEO } from "../utils/seo";
 
 // 🎯 Prefetch only the routes that exist
@@ -82,7 +82,7 @@ const Home = () => {
     }
   }, []);
 
-  // ⏳ Idle prefetch (disabled until deeper routes exist)
+  // ⏳ Idle prefetch (placeholder for deeper routes)
   useEffect(() => {
     const run = () => {};
     if ("requestIdleCallback" in window) {
