@@ -8,8 +8,8 @@ import "./App.css";
 // --- Eager (keep instant for UX / LCP) ---
 import Home from "./pages/Home.jsx";
 import NextArkYouth from "./pages/NextArkYouth.jsx";
-// 🔧 CI fix: use the exact filename/case that exists in repo (scrollLibraryGateway.jsx)
-import ScrollLibraryGateway from "./pages/scrollLibraryGateway.jsx";
+// 🔧 CI fix: match PascalCase filename exactly
+import ScrollLibraryGateway from "./pages/ScrollLibraryGateway.jsx";
 
 // --- Lazy (non‑critical splits) ---
 const AffiliateTools      = lazy(() => import("./pages/AffiliateTools.jsx"));
