@@ -27,9 +27,20 @@ jobs:
           node-version: 20
           cache: npm
 
-      # Works whether or not package-lock.json exists
-      - name: Install deps
+      # Make sure we do a fully clean, platform-correct install
+      - name: Clean cache and modules
+        run: |
+          rm -rf node_modules
+          npm cache clean --force
+
+      - name: Install deps (uses lockfile if present)
         run: npm ci || npm install
+
+      - name: Show rollup status
+        run: |
+          node -v
+          npm -v
+          npm ls rollup || true
 
       - name: Build
         run: npm run build
