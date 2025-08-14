@@ -1,5 +1,5 @@
 // ==========================
-// ✅ Home.jsx – CPR v11: SEO + IO fade + mobile LCP + safe prefetch set
+// ✅ Home.jsx – CPR v12: SEO + IO fade + mobile LCP + safe prefetch + Substack global embed
 // ==========================
 import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
@@ -155,7 +155,7 @@ const Home = () => {
             📜 Scroll Library
           </Link>
 
-          <Link
+        <Link
             to="/nextark-youth"
             className="scroll-button"
             aria-label="Open NextArk Youth portal"
@@ -222,15 +222,32 @@ const Home = () => {
         >
           <h2 id="signal-title">📬 Join the Signal Scroll</h2>
           <p>Weekly drops on Bitcoin, AI, and sovereign family life.</p>
+
+          {/* Substack embed — global endpoint is most permissive */}
           <iframe
-            src="https://nextark.substack.com/embed?hide=title"
+            src="https://substack.com/embed/nextark?hide=title"
             width="100%"
-            height="200"
+            height="220"
             frameBorder="0"
             scrolling="no"
             title="Substack"
             loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            style={{ background: "transparent", width: "100%" }}
           ></iframe>
+
+          {/* Fallback link in case an extension blocks the iframe */}
+          <p style={{ marginTop: "0.75rem", textAlign: "center" }}>
+            Can’t see the signup box?{" "}
+            <a
+              href="https://nextark.substack.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Open on Substack
+            </a>
+            .
+          </p>
         </section>
 
         <div className="social-links scroll-fade">
