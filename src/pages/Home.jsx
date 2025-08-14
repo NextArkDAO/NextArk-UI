@@ -1,5 +1,5 @@
 // ==========================
-// ✅ Home.jsx – CPR v10: SEO + IO fade + mobile LCP + safe prefetch set
+// ✅ Home.jsx – CPR v11: SEO + IO fade + mobile LCP + safe prefetch set
 // ==========================
 import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
@@ -30,7 +30,7 @@ const Home = () => {
       title: "NextArk — Learn. Stack. Lead.",
       description:
         "Sovereign learning with Bitsy: scrolls, vaults, and missions for families and youth.",
-      canonical: "https://your-domain.com/",
+      canonical: "https://nextarkdao.com/",
       og: { image: "/og/home.jpg", type: "website" },
     });
   }, []);
@@ -223,7 +223,7 @@ const Home = () => {
           <h2 id="signal-title">📬 Join the Signal Scroll</h2>
           <p>Weekly drops on Bitcoin, AI, and sovereign family life.</p>
           <iframe
-            src="https://substack.com/embed/nextark?hide=title"
+            src="https://nextark.substack.com/embed?hide=title"
             width="100%"
             height="200"
             frameBorder="0"
@@ -259,7 +259,7 @@ const Home = () => {
             🎵 TikTok
           </a>
           <a
-            href="https://substack.com/@nextark"
+            href="https://nextark.substack.com"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="NextArk on Substack"
